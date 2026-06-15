@@ -1,0 +1,22 @@
+<nav class="nav">
+    <div class="left">
+        <h1 class="hP">Contact</h1>
+    </div>
+    <div class="right">
+        <button class="btn" (click)="selectedType.set('mock')">MOCK</button>
+        <button class="btn" (click)="selectedType.set('json')">JSON</button>
+    </div>
+</nav>
+<div class="contacts-layout">
+
+    @if (selectedType() === 'json') {
+    <app-contact-list (contactSelected)="onContactSelected($event)"></app-contact-list>
+    <app-contact-details [contact]="selectedContact()"></app-contact-details>
+    }
+    @if (selectedType() == 'mock') {
+    <ng-container>
+        <app-componantlistmock (contactSelected)="onContactSelected($event)"></app-componantlistmock>
+        <app-componantdetailsmock [contact]="selectedContact()"></app-componantdetailsmock>
+    </ng-container>
+    }
+</div>

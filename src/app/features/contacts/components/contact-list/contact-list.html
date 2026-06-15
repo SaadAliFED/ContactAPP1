@@ -1,0 +1,20 @@
+<div class="contacts" (scroll)="onScrollContainer($event)">
+    @for(contact of visibleContacts(); track contact.id){
+
+    <div class="contact-item" [class.active]="selectedContact()?.id === contact.id" (click)="selectContact(contact)">
+        <img [src]="contact.avatar" />
+
+        <div class="info">
+            <h4>{{ contact.firstName }} {{ contact.lastName }}</h4>
+            <p>{{ contact.designation }}</p>
+        </div>
+
+        <div class="actions">
+            <button>✉</button>
+            <button>📞</button>
+            <button>⋮</button>
+        </div>
+    </div>
+
+    }
+</div>

@@ -1,0 +1,90 @@
+@if(contact){
+
+<div class="details-container">
+
+    <div class="profile">
+
+        <img [src]="contact.avatar">
+
+        <div class="info">
+
+            <h2>
+                {{contact.firstName}}
+                {{contact.lastName}}
+            </h2>
+
+            <p>{{contact.designation}}</p>
+
+            <div class="action-buttons">
+                <button>Message</button>
+                <button>Call</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="info-grid">
+
+        <div class="label">Bio</div>
+        <div class="value">
+            {{contact.bio}}
+        </div>
+
+        <div class="label">Phone</div>
+        <div class="value">
+            @for(phone of contact.phones; track phone){
+            {{contact.phone}}
+            }
+        </div>
+
+        <div class="label">Address</div>
+        <div class="value">
+            {{contact.address}}
+        </div>
+
+        <div class="label">Email</div>
+
+        <div class="value email-list">
+
+            @for(email of emails; track email.id){
+
+            <div>
+                {{email.email}}
+
+                @if(email.primary){
+                <span class="badge">
+                    Primary
+                </span>
+                }
+
+            </div>
+
+            }
+
+        </div>
+
+        <div class="label">Social</div>
+        <div class="social-links">
+            @if(contact.socials.facebook){
+            <a [href]="contact.socials.facebook" target="_blank">F</a>
+            }
+
+            @if(contact.socials.linkedin){
+            <a [href]="contact.socials.linkedin" target="_blank">L</a>
+            }
+
+            @if(contact.socials.github){
+            <a [href]="contact.socials.github" target="_blank">G</a>
+            }
+
+            @if(contact.socials.instagram){
+            <a [href]="contact.socials.instagram" target="_blank">I</a>
+            }
+        </div>
+
+    </div>
+
+</div>
+
+}

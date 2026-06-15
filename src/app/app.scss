@@ -1,0 +1,13 @@
+.contacts-layout {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    height: 100vh;
+}
+
+@media (max-width: 768px) {
+
+    .contacts-layout {
+        grid-template-columns: 1fr;
+    }
+
+}

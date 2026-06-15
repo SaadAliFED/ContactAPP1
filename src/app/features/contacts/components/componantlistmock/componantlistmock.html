@@ -1,0 +1,43 @@
+<div class="contact-list">
+
+    <div class="header">
+        <h2>Contacts</h2>
+    </div>
+
+    <div class="search-box">
+        <input type="text" placeholder="Search contact..." (input)="onSearch($event)" />
+    </div>
+
+    <div class="contacts">
+
+        @for(contact of filteredContacts(); track contact.id){
+
+        <div class="contact-item" [class.active]="selectedContact()?.id === contact.id"
+            (click)="selectContact(contact)">
+
+            <img [src]="contact.avatar">
+
+            <div class="info">
+                <h4>
+                    {{contact.firstName}}
+                    {{contact.lastName}}
+                </h4>
+
+                <p>
+                    {{contact.designation}}
+                </p>
+            </div>
+
+            <div class="actions">
+                <button>✉</button>
+                <button>📞</button>
+                <button>⋮</button>
+            </div>
+
+        </div>
+
+        }
+
+    </div>
+
+</div>
